@@ -1,35 +1,36 @@
 package controller;
 
 import model.Forest;
+import model.RainForest;
 
 public class Main {
 
     public static void main(String[] args) {
 
+        Forest testForest = new Forest("A beautiful forest");
+        Forest rainForest = new RainForest("Amazon Forest");
+
         boolean isTestMode1 = true;
         boolean isTestMode2 = false;
 
-        Forest regularForest = new Forest("A beautiful forest");
-        Forest rainForest = new Forest("Amazon Forest");
-
-        regularForest.parseTreesForForest(isTestMode1);
+        testForest.parseTreesForForest(isTestMode1);
         rainForest.parseTreesForForest(isTestMode2);
 
-        int numberOfVisibleTreesRegularForest = regularForest.calculateNumberOfVisibleTrees();
-        int numberOfVisibleTreesRainForest = rainForest.calculateNumberOfVisibleTrees();
+        int numberOfVisibleTreesTestForest = testForest.calculateNumberOfVisibleTrees();
+        int numberOfVisibleTreesRealForest = rainForest.calculateNumberOfVisibleTrees();
 
         System.out.println("Number of visible trees in the forest:");
         System.out.println("+----------------+------------+------------+------------+");
         System.out.println("| Forest Type    | Visible    | Total      | Grid       ");
         System.out.println("+----------------+------------+------------+------------+");
-        System.out.printf("| Regular        | %-10d | %-10d | %dx%d      \n",
-                numberOfVisibleTreesRegularForest,
-                regularForest.getTree().getNumberOfRows() * regularForest.getTree().getNumberOfColumns(),
-                regularForest.getTree().getNumberOfRows(),
-                regularForest.getTree().getNumberOfColumns());
+        System.out.printf("| Test           | %-10d | %-10d | %dx%d      \n",
+                numberOfVisibleTreesTestForest,
+                testForest.getTree().getNumberOfRows() * testForest.getTree().getNumberOfColumns(),
+                testForest.getTree().getNumberOfRows(),
+                testForest.getTree().getNumberOfColumns());
         System.out.println("+----------------+------------+------------+------------+");
-        System.out.printf("| Rain           | %-10d | %-10d | %dx%d      \n",
-                numberOfVisibleTreesRainForest,
+        System.out.printf("| Real forest    | %-10d | %-10d | %dx%d      \n",
+                numberOfVisibleTreesRealForest,
                 rainForest.getTree().getNumberOfRows() * rainForest.getTree().getNumberOfColumns(),
                 rainForest.getTree().getNumberOfRows(),
                 rainForest.getTree().getNumberOfColumns());
