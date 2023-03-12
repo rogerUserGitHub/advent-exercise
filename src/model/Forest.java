@@ -91,7 +91,8 @@ public class Forest implements ForestGenerator {
                     countedTrees.add(tempPair);
                     visible++;
                     max = tree.collectionOfTrees[row][column];
-                } else if (tree.collectionOfTrees[row][column] < max) {
+                }
+                else if (tree.collectionOfTrees[row][column] < max) {
                     break;
                 }
             }
